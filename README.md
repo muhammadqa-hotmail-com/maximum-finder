@@ -17,6 +17,7 @@ Finds maximum integer value from file containing list of integers
 ### Build
 ```mvn clean install```
 ### Run
+Adjust SPARK_HOME and PROJECT_HOME in scripts/spark_submit.sh and run the script
 ```sh scripts/spark_submit.sh```
 
 
