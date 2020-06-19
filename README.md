@@ -4,7 +4,7 @@ Finds maximum integer value from file containing list of integers
 ## Details
  Program expects the following two parameters being passed as args array:
 - args[0] - text file path (file contains list of integers - each value is expected to be on a new line)
-- args[1] - number of partitions for text file path
+- args[1] - number of partitions
 
 ### Pre conditions:
  - Current implementation assumes that text file contains only integers. If this assumption
