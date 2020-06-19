@@ -7,14 +7,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 /*
- Program expects the following two parameters passed as args array:
- args[0] - text file path (file contains list of integers - each value is expected to be on a new line)
- args[1] - number of partitions for text file path
-
- Pre conditions:
- 1: Program assumes that text file contains only integers. If this assumption
-    is not correct then appropriate checks need to be added to discard non-integer
-    values
+Main entry point. Starts spark session and finds out max value
  */
 public class MaximumIntegerFinder
 {
@@ -45,6 +38,7 @@ public class MaximumIntegerFinder
      */
     private static int findMax(JavaSparkContext sc, String filePath, int numberOfPartitions) {
         JavaRDD<String> lines = sc.textFile(filePath, numberOfPartitions);
+        //Here we are just using JavaRDD's map and reduce functions. Builtin max could also have been used instead
         Integer maxValue = lines.map(line -> Integer.parseInt(line)).reduce((v1, v2) -> Math.max(v1, v2));
         return maxValue;
     }
